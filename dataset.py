@@ -8,31 +8,31 @@ def get_dataset():
     for i, img in enumerate(os.listdir(path_normal)):        
         # Handle cropping
         image = cv2.imread(os.path.join(path_normal, img))
-        gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
 
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
-        # Handle cropping to even smaller
-        L2_image = cv2.imread(os.path.join(path_normal, img))
-        gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200,L2gradient=True)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = L2_image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # # Handle cropping to even smaller
+        # L2_image = cv2.imread(os.path.join(path_normal, img))
+        # gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200,L2gradient=True)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = L2_image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
         
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
         image = (image)/255
         c = 255 / (1+np.max(image))
@@ -51,33 +51,33 @@ def get_dataset():
     
     for i, img in enumerate(os.listdir(path_tb)):
 
-        # Handle cropping
+        # # Handle cropping
         image = cv2.imread(os.path.join(path_tb, img))
-        gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
 
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
-        # Handle cropping to even smaller
-        L2_image = cv2.imread(os.path.join(path_tb, img))
-        gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200,L2gradient=True)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = L2_image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # # Handle cropping to even smaller
+        # L2_image = cv2.imread(os.path.join(path_tb, img))
+        # gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200,L2gradient=True)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = L2_image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
         
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
         # Log transform
         image = (image)/255
@@ -124,33 +124,33 @@ def get_dataset_test():
     x_normal=[]
     x_tb=[]
     for i, img in enumerate(os.listdir(path_normal)):        
-        # Handle cropping
+        # # Handle cropping
         image = cv2.imread(os.path.join(path_normal, img))
-        gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
 
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
-        # Handle cropping to even smaller
-        L2_image = cv2.imread(os.path.join(path_normal, img))
-        gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200,L2gradient=True)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = L2_image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # # Handle cropping to even smaller
+        # L2_image = cv2.imread(os.path.join(path_normal, img))
+        # gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200,L2gradient=True)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = L2_image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
         
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
         image = (image)/255
         c = 255 / (1+np.max(image))
@@ -169,33 +169,33 @@ def get_dataset_test():
     
     for i, img in enumerate(os.listdir(path_tb)):
 
-        # Handle cropping
+        # # Handle cropping
         image = cv2.imread(os.path.join(path_tb, img))
-        gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
 
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
-        # Handle cropping to even smaller
-        L2_image = cv2.imread(os.path.join(path_tb, img))
-        gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gs,100,200,L2gradient=True)
-        x, y, w, h = cv2.boundingRect(edges)
-        temp = None
-        try:
-            temp = L2_image[y:y+h, x:x+w, :].copy()
-        except:
-            pass
+        # # Handle cropping to even smaller
+        # L2_image = cv2.imread(os.path.join(path_tb, img))
+        # gs = cv2.cvtColor(L2_image, cv2.COLOR_BGR2GRAY)
+        # edges = cv2.Canny(gs,100,200,L2gradient=True)
+        # x, y, w, h = cv2.boundingRect(edges)
+        # temp = None
+        # try:
+        #     temp = L2_image[y:y+h, x:x+w, :].copy()
+        # except:
+        #     pass
         
-        if len(temp)>0:
-            image = temp
+        # if len(temp)>0:
+        #     image = temp
 
         # Log transform
         image = (image)/255
