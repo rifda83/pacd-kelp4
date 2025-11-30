@@ -8,7 +8,7 @@ kernel_dilation = np.ones((5, 5), np.uint8)
 
 
 
-def get_dataset(path_normal = "TBX11K/imgs/combined_normal", path_tb = "TBX11K/imgs/combined_tb"):
+def get_dataset(    path_normal = "TB_Chest_Radiography_Database/Normal", path_tb = "TB_Chest_Radiography_Database/Tuberculosis"):
     x_normal=[]
     x_tb=[]
     for i, img in enumerate(os.listdir(path_normal)):        
@@ -24,7 +24,7 @@ def get_dataset(path_normal = "TBX11K/imgs/combined_normal", path_tb = "TBX11K/i
         image = cv2.equalizeHist(image)
 
         # image = cv2.equalizeHist(image)
-        image = cv2.resize(image, (512, 512))
+        image = cv2.resize(image, (128, 128))
         # image = convolution(kernel_sharpen, image)
         image = abs(image+cv2.filter2D(image,-1,kernel_sharpen))
         image = cv2.bitwise_not(image)
@@ -47,8 +47,8 @@ def get_dataset(path_normal = "TBX11K/imgs/combined_normal", path_tb = "TBX11K/i
 
 
         # image = cv2.equalizeHist(image)
-        image = cv2.resize(image, (512, 512))
-        if image.shape != (512, 512):
+        image = cv2.resize(image, (128, 128))
+        if image.shape != (128, 128):
             continue
         # image = convolution(kernel_sharpen, image)
         image = abs(image+cv2.filter2D(image,-1,kernel_sharpen))
@@ -64,6 +64,7 @@ def get_dataset(path_normal = "TBX11K/imgs/combined_normal", path_tb = "TBX11K/i
 def get_dataset_test():
     # path_normal = "Chest-X-Ray/normal"
     # path_tb = "Chest-X-Ray/tb"
-    path_normal = "TB_Chest_Radiography_Database/Normal"
-    path_tb = "TB_Chest_Radiography_Database/Tuberculosis"
+    path_normal = "TBX11K/imgs/health"
+    path_tb = "TBX11K/imgs/tb"
+
     return get_dataset(path_normal, path_tb)
