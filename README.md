@@ -1,9 +1,9 @@
 # Handcrafted Feature Extraction for Tuberculosis Detection from X-Ray Medical Images
 
 # Kelompok 4 - **PACD**
-    - Jeremia Manurung 25/563379/PPA/07110
-    - Rifda Sasmi Zahra 25/567016/PPA/07142
-    - Theofilus Arkhi Susanto 25/555265/PPA/07030
+- [Jeremia Manurung](https://github.com/jeremia49/) 25/563379/PPA/07110
+- [Rifda Sasmi Zahra](https://github.com/rifda83) 25/567016/PPA/07142
+- [Theofilus Arkhi Susanto](https://github.com/fujimotoAr) 25/555265/PPA/07030
 
 # Dataset 
   - https://www.kaggle.com/datasets/tawsifurrahman/tuberculosis-tb-chest-xray-dataset
