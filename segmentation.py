@@ -1,21 +1,18 @@
 import cv2, numpy as np
+from collections import deque
 
+def get_segmentation(source): 
 
-def get_segmentation(source):
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+    ret3,th3 = cv2.threshold(source,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    # ret3,th3 = cv2.threshold(source,0,255,cv2.THRESH_OTSU)
 
-    k = 2
-
-    image = np.array(source,dtype=np.float32)
-    pixel_values = np.array(image.reshape((-1, 3)) if len(image.shape) == 3 else image.reshape((-1, 1)))
-    pixel_values = np.float32(pixel_values)
-
-    retval, labels, centers = cv2.kmeans(pixel_values, k, None, criteria, 10, cv2.KMEANS_PP_CENTERS) 
-
-
-    centers = np.uint8(centers) 
-
-    segmented_data = centers[labels.flatten()] 
-
-    segmented_image = segmented_data.reshape((image.shape)) 
-    return segmented_image
+    contours, hierarchy = cv2.findContours(image=th3, mode=cv2.RETR_TREE, method=cv2.CHAIN_APPROX_SIMPLE)
+                                      
+    cv2.drawContours(image=th3, contours=contours, contourIdx=-1, color=(0, 255, 0), thickness=10, lineType=cv2.LINE_AA)
+    # th3 = cv2.adaptiveThreshold(source,255,cv2.ADAPTIVE_THRESH_MEAN_C,\
+    #         cv2.THRESH_BINARY,11,2)
+    # blur = cv2.GaussianBlur(source,(5,5),0)
+    # ret3,th3 = cv2.threshold(blur,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    # th3=fill_white_areas(th3)
+    
+    return th3
